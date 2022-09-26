@@ -1,87 +1,39 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { QuranDataPage, QuranDataSura } from '../quran-resources (farawin)/quran-metadata'
+import React, { useEffect } from 'react'
+import { json, useParams } from 'react-router-dom'
+import { QuranDataSura } from '../quran-resources (farawin)/quran-metadata'
+import emla from '../quran-resources (farawin)/quran-text-emla.json'
+
 
 const Sura = () => {
-  const pages = QuranDataPage
+
+
+  const { index } = useParams()
+  const suraNum = parseInt(index)
   const data = QuranDataSura
-  const navigate = useNavigate()
-  const [isEmpty, setIsEmpty] = useState(true)
-  let temp = []
-  const [foundSuras, setFoundSuras] = useState([])
+  const start = data[suraNum][0]
+  let eachSura = []
 
-
-  const findSura = (index) => {
-
-  }
-
-  const findMatches = (e) => {
-    if (e.target.value !== '') {
-      setIsEmpty(false)
+  const suraMaker = (start) => {
+    // eachSura = []
+    if (start !== 0) {
+      eachSura.push('بِسۡمِ اللّٰهِ الرَّحۡمٰنِ الرَّحٖیمِ')
     }
-    temp = []
-    for (let c = 0; c < data.length; c++) {
-      if
-        (
-        data[c][4].includes(e.target.value) ||
-        data[c][5].toLowerCase().includes(e.target.value.toLowerCase()) ||
-        data[c][6].toLowerCase().includes(e.target.value.toLowerCase())
-      ) {
-        temp.push(data[c])
-      }
+    for (let c = start; c < data[suraNum][1] + start; c++) {
+      eachSura.push(emla[c])
     }
-    setFoundSuras(temp)
   }
-
+  suraMaker(start)
 
 
   return (
     <div className='wrapper-sura'>
-
-      <div className='sura-search-all'>
-        <div className='sura-search-area relative'>
-          <input
-            type="text"
-            placeholder='نام سوره'
-            className='sura-search-input'
-            onChange={findMatches}
-          />
-          <i
-            className="sura-search-icon fa-sharp fa-solid fa-magnifying-glass">
-          </i>
-        </div>
-      </div>
-
-      <div className='all-suras'>
-        {isEmpty ?
-          data.map((sura, index) => {
-            return (<div
-              key={index}
-              className='sura'
-              onClick={() => { findSura(index) }}>
-              <span>{index + 1}</span>
-              <p className='persian-name'>{sura[4]}</p>
-              <p>{sura[6]}</p>
-              <p>تعداد آیات: {sura[1]} </p>
-              <p>{sura[7]}</p>
-            </div>)
-          }) :
-          foundSuras.map((sura, index) => {
-            return (<div
-              key={index}
-              className='sura'
-              onClick={() => { findSura(index) }}>
-              <span>{index + 1}</span>
-              <p className='persian-name'>{sura[4]}</p>
-              <p>{sura[6]}</p>
-              <p>تعداد آیات: {sura[1]} </p>
-              <p>{sura[7]}</p>
-            </div>)
-          })
-        }
-      </div>
-
+      {eachSura.map((aya, index) => {
+        return (
+          <div className='aya' key={index}>{aya} &nbsp;&nbsp; {index != 0 && index}</div>
+        )
+      })}
     </div>
   )
 }
+
 export default Sura
