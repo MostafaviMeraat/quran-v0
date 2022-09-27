@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { QuranDataSura } from '../quran-resources (farawin)/quran-metadata'
@@ -39,6 +40,13 @@ const Sura = () => {
   return (
 
     <div className='wrapper-sura'>
+      <div className='each-sura'>
+        {eachSura.map((aya, index) => {
+          return (
+            <div className='aya' key={index}>{aya} &nbsp;&nbsp; {index != 0 && index}<br /><br /><br /></div>
+          )
+        })}
+      </div>
 
       {eachSura.map((aya, index) => {
         return (
@@ -52,12 +60,12 @@ const Sura = () => {
               <span className="material-symbols-outlined pause" onClick={() => { play(index, suraNum) }}>
                 pause
               </span>}
-            <div><span className='ayaNumber'>{index != 0 && index}</span> {aya}</div>
+            <div><span className='ayaNumber'>{index != 0 && index} {aya}</span> </div>
             <div className='translate'>{eachAyaTranslate[index]}</div>
           </div>
         )
       })}
-    </div>
+    </div >
   )
 }
 

@@ -108,6 +108,13 @@ input {
   cursor: pointer;
 }
 
+.each-sura {
+  padding: 1em;
+  display: grid;
+  place-items: center;
+  width: 70%;
+}
+
 .aya {
   color: var(--clr-lighter);
   font-size: 28px;
