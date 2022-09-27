@@ -62,6 +62,7 @@ const AllSura = () => {
               <span>{index + 1}</span>
               <p className='persian-name'>{sura[4]}</p>
               <p>{sura[6]}</p>
+              <p>{sura[5]}</p>
               <p>تعداد آیات: {sura[1]} </p>
               <p>{sura[7]}</p>
             </div>)
@@ -71,9 +72,9 @@ const AllSura = () => {
               key={index}
               className='sura'
               onClick={() => { findSura(index) }}>
-              <span>{index + 1}</span>
               <p className='persian-name'>{sura[4]}</p>
               <p>{sura[6]}</p>
+              <p>{sura[5]}</p>
               <p>تعداد آیات: {sura[1]} </p>
               <p>{sura[7]}</p>
             </div>)

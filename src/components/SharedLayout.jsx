@@ -9,7 +9,9 @@ const SharedLayout = () => {
         <NavLink to='/juz' className='link'>جزء</NavLink>
         <NavLink to='/page' className='link'>صفحه</NavLink>
         <NavLink to='/favorite' className='link'>مورد علاقه</NavLink>
-        <NavLink to='/setting' className='link'>تنظیمات</NavLink>
+        <NavLink to='/setting' className='gear'><span className="material-symbols-outlined">
+          settings
+        </span></NavLink>
       </nav>
       <Outlet />
     </div>
