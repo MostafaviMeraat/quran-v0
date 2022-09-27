@@ -29,6 +29,7 @@ input {
   color: var(--clr-lighter)
 }
 
+
 /* Shared*/
 
 .navBar {
@@ -58,6 +59,11 @@ input {
   transition: var(--transition);
 }
 
+.fixed {
+  position: fixed;
+  bottom: 0;
+}
+
 /* Sura */
 
 .wrapper-sura {
@@ -66,11 +72,9 @@ input {
   min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   gap: 5rem;
-  padding: 2em;
-  padding-left: 4em;
 }
 
 .sura-search-all {
@@ -115,6 +119,11 @@ input {
   width: 70%;
 }
 
+hr {
+  min-width: 50vw;
+  opacity: .2;
+}
+
 .aya {
   color: var(--clr-lighter);
   font-size: 28px;
@@ -122,6 +131,19 @@ input {
     sans-serif;
   display: grid;
   place-items: center;
+  padding-top: 2em;
+}
+
+.play,
+.pause {
+  min-width: 200px;
+  width: 35vw;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--clr-medium);
+  border-radius: 20px;
+  background-color: #415A77;
+  color: var(--clr-darkest);
 }
 
 .translate {
@@ -175,9 +197,9 @@ input {
 
 .play:hover {
   cursor: pointer;
-  scale: 1.2;
+  /* scale: 1.2;
   color: var(--clr-medium);
-  transition: var(--transition);
+  transition: var(--transition); */
 }
 
 /* ----- */
@@ -194,9 +216,9 @@ input {
 
 .pause:hover {
   cursor: pointer;
-  scale: 1.2;
+  /* scale: 1.2;
   color: var(--clr-medium);
-  transition: var(--transition);
+  transition: var(--transition); */
 }
 
 /* ----- */
@@ -205,14 +227,8 @@ input {
   display: none;
 }
 
-/* .ayaNumber {
-  width: 25px;
-  height: 10px;
-  background-color: red;
-  padding: 1em;
-} */
-
-
+/* juz component */
+.wrapper-juz {}
 
 @media screen and (max-width:1300px) {
   .all-suras {
@@ -228,6 +244,11 @@ input {
 }
 
 @media screen and (max-width:700px) {
+  .navBar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .all-suras {
     display: grid;
     grid-template-columns: repeat(1, 1fr);

@@ -131,7 +131,7 @@ export const QuranDataSura = [
 
 //------------------ Juz Data ---------------------
 
-QuranData.Juz = [
+export const QuranDataJuz = [
 	// [sura, aya]
 	[],
 	[1, 1], [2, 142], [2, 253], [3, 93], [4, 24],
